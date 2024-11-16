@@ -22,16 +22,23 @@ export async function getNameForAddress(request: IRequest, env: Env) {
   const parsedNames = parseNameFromDb(names)
 
   // Simplify the response format
-  const formattedNames = parsedNames.reduce((acc, name) => {
-    return {
-      ...acc,
-      [name.name]: {
+//   const formattedNames = parsedNames.reduce((acc, name) => {
+//     return {
+//       ...acc,
+//       [name.name]: {
+//         addresses: name.addresses,
+//         texts: name.texts,
+//         contenthash: name.contenthash,
+//       },
+//     }
+//   }, {})
+
+    const formattedNames = parsedNames.map(name => ({
+        name: name.name,
         addresses: name.addresses,
         texts: name.texts,
         contenthash: name.contenthash,
-      },
-    }
-  }, {})
+    }));
 
   return Response.json(formattedNames, {
     status: 200,
