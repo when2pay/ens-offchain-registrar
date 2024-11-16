@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
-    "dev:create-tables": "wrangler d1 execute offchaindemo --local --file=./src/db/create-tables.sql",
-    "prod:create-tables": "wrangler d1 execute offchaindemo --file=./src/db/create-tables.sql"
+    "dev:create-tables": "wrangler d1 execute wenpay --local --file=./src/db/create-tables.sql",
+    "prod:create-tables": "wrangler d1 execute wenpay --file=./src/db/create-tables.sql --remote"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240903.0",

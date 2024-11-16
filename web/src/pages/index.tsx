@@ -25,7 +25,7 @@ export default function App() {
   const { data, isLoading, signMessage, variables } = useSignMessage()
 
   const nameData: WorkerRequest['signature']['message'] = {
-    name: `${debouncedName}.offchaindemo.eth`,
+    name: `${debouncedName}.wenpay.eth`,
     owner: address!,
     // https://docs.ens.domains/web/resolution#multi-chain
     addresses: {
@@ -48,7 +48,7 @@ export default function App() {
     data: gatewayData,
     error: gatewayError,
     isLoading: gatewayIsLoading,
-  } = useFetch(data && 'https://ens-gateway.gregskril.workers.dev/set', {
+  } = useFetch(data && 'https://wenpay.wenpay.workers.dev/set', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ export default function App() {
           <Input
             type="text"
             label="Name"
-            suffix=".offchaindemo.eth"
+            suffix=".rex.eth"
             placeholder="ens"
             required
             disabled={!!data || !address}
@@ -142,7 +142,7 @@ export default function App() {
           <Helper>
             <p>
               Visit the{' '}
-              <Link href={`https://ens.app/${debouncedName}.offchaindemo.eth`}>
+              <Link href={`https://ens.app/${debouncedName}.rex.eth`}>
                 ENS Manager
               </Link>{' '}
               to see your name
